@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from gateway.mongodb_repo import SensordataDBInteractor
-from usecase.get_sensordata import SensordataUsecase
+from usecase.sensordata import SensordataUsecase
 from entity.model import Sensordata,Post_Sensordata
 
 app = FastAPI()

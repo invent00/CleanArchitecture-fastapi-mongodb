@@ -1,6 +1,6 @@
 from pymongo import MongoClient,DESCENDING
 from entity.model import Sensordata
-from usecase.get_sensordata import SensordataRepository
+from usecase.sensordata import SensordataRepository
 import os
 
 url=os.environ['DB_string']

@@ -18,4 +18,16 @@ class SensordataDBInteractor(SensordataRepository):
             envdata.append(Sensordata(**document))
             return envdata
         return get_latest_sensordata_from_DB()
+    def post_sensordata(self,sensordata):
+        def post_sensordata_to_DB(sensordata:Sensordata):
+            client = MongoClient(url)
+            db=client[dbname]
+            collection=db[collectionname]
+            cursor=collection.insert_one(sensordata.dict(by_alias=True))
+            if cursor.inserted_id:
+                status="inserted data"
+            else:
+                status="some error occur"
+            return status
+        return post_sensordata_to_DB(sensordata)
 

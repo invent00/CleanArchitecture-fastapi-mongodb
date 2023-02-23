@@ -37,3 +37,17 @@ class Sensordata(BaseModel):
         json_encoders={
             ObjectId:str
         }
+
+class Post_Sensordata(BaseModel):
+    time:datetime=Field(description="時刻")
+    temp:float=Field(description="温度 ℃")
+    humid:float=Field(description="湿度 %")
+    light:float=Field(description="光度 lx")
+    pressure:float=Field(description="気圧 hPa")
+    noise:float=Field(description="騒音 dB")
+    eCO2:float=Field(description="CO2濃度推定値 ppm")
+    class Config:
+        arbitrary_types_allowed=True
+        json_encoders={
+            ObjectId:str
+        }

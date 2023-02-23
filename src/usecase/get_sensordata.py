@@ -6,6 +6,8 @@ class SensordataRepository(metaclass=ABCMeta):
     @abstractmethod
     def get_latest_sensordata(self)->Sensordata:
         raise NotImplementedError
+    def post_sensordata(self):
+        raise NotImplementedError
 
 #usecase/interactor
 class SensordataUsecase():
@@ -15,5 +17,7 @@ class SensordataUsecase():
         self.sensordata_repo=repo
     def get_latest_sensordata(self)->Sensordata:
         return self.sensordata_repo.get_latest_sensordata()
+    def post_sensordata(self,sensordata):
+        return self.sensordata_repo.post_sensordata(sensordata)
 
 
